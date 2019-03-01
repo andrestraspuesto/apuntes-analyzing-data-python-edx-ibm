@@ -1,0 +1,1 @@
+docker run --rm -it -v $PWD/src:/usr/src/myapp -v $PWD/resources:/tmp/resources -w /usr/src/myapp py-pandas bash
