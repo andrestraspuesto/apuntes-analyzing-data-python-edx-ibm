@@ -31,21 +31,22 @@ def get_clean_cars_df(df):
     df = pd.concat([df, pd.get_dummies(df['fuel-type'])], axis = 1) 
     return df
 
+def get_cars_df():
+    resources_folder = "/tmp/resources/" 
+    headers = ["symboling", "normalized-losses", "make", "fuel-type", "aspiration", 
+        "num-of-doors", "body-style", "drive-wheels", "engine-location", "wheel-base", 
+        "length", "width", "height", "curb-weight", "engine-type", "num-of-cylinders", 
+        "engine-size", "fuel-system", "bore", "stroke", "compression-ratio", "horsepower", 
+        "peak-rpm", "city-mpg", "highway-mpg", "price" ]
 
-resources_folder = "/tmp/resources/" 
+    df = pd.read_csv(resources_folder + "imports-85.data", header = None)
+    df.columns = headers
+    return df
 
-headers = ["symboling", "normalized-losses", "make", "fuel-type", "aspiration", 
-"num-of-doors", "body-style", "drive-wheels", "engine-location", "wheel-base", 
-"length", "width", "height", "curb-weight", "engine-type", "num-of-cylinders", 
-"engine-size", "fuel-system", "bore", "stroke", "compression-ratio", "horsepower", 
-"peak-rpm", "city-mpg", "highway-mpg", "price" ]
+#df = get_cars_df()
+#view_data_info(df)
 
-df = pd.read_csv(resources_folder + "imports-85.data", header = None)
-df.columns = headers
-
-view_data_info(df)
-
-clean_df = get_clean_cars_df(df)
+#clean_df = get_clean_cars_df(df)
 
 #Escritura en csv del dataframe con cabeceras
-clean_df.to_csv(resources_folder + "export.csv")
+#clean_df.to_csv(resources_folder + "export.csv")
