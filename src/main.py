@@ -4,4 +4,4 @@ import mod2.exploratory_data_analysis as ea
 df = rd.get_cars_df()
 clean_df = rd.get_clean_cars_df(df)
 
-print(clean_df)
+ea.simple_linear_regression(clean_df[['highway-mpg']], clean_df['price'])
